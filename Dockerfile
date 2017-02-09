@@ -9,7 +9,10 @@ RUN pkg-deb \
   ruby2.3-dev
 
 RUN useradd --create-home --shell /bin/bash jobengine
+RUN mkdir -p /src
+RUN chown jobengine:jobengine /src
 USER jobengine
 
+WORKDIR /src
 # Force choosing a command in docker-compose.yml or CLI
 CMD false
