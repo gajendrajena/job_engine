@@ -10,6 +10,7 @@ RUN pkg-deb \
   ruby2.3-dev
 
 RUN pkg-gem bundler:1.14.3
+RUN bundle config --global silence_root_warning 1
 
 # Used for `middleman init`
 RUN pkg-deb git=1:2.7.4-0ubuntu1
