@@ -8,6 +8,7 @@ RUN pkg-deb \
   ruby2.3 \
   ruby2.3-dev
 
+RUN useradd --create-home --shell /bin/bash jobengine
 USER jobengine
 
 # Force choosing a command in docker-compose.yml or CLI
