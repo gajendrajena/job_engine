@@ -6,6 +6,8 @@ RUN chmod +x /usr/local/bin/pkg-*
 
 # Used for `middleman init`
 RUN pkg-deb git=1:2.7.4-0ubuntu1
+RUN pkg-deb openssh-client # for publishing securely using git
+RUN pkg-deb linkchecker
 
 RUN pkg-deb \
   build-essential=12.1ubuntu2 \
