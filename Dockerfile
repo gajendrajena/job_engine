@@ -25,11 +25,17 @@ RUN pkg-gem eventmachine:1.2.2
 
 RUN pkg-gem middleman:4.2.1
 
+RUN mkdir -p /src/lib/job_engine
+RUN echo 'module JobEngine; VERSION = "0.0.0.fake"; end' > /src/lib/job_engine/version.rb
+WORKDIR /src
+COPY Gemfile /src/Gemfile
+COPY job_engine.gemspec /src/job_engine.gemspec
+
+RUN bundle install
+
 RUN useradd --create-home --shell /bin/bash jobengine
-RUN mkdir -p /src
 RUN chown jobengine:jobengine /src
 USER jobengine
 
-WORKDIR /src
 # Force choosing a command in docker-compose.yml or CLI
 CMD false
