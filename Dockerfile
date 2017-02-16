@@ -4,6 +4,9 @@ RUN echo 'apt-get update && apt-get install --no-install-recommends -y $*' > /us
 RUN echo 'gem install --no-ri --no-rdoc $*' > /usr/local/bin/pkg-gem
 RUN chmod +x /usr/local/bin/pkg-*
 
+# Used for `middleman init`
+RUN pkg-deb git=1:2.7.4-0ubuntu1
+
 RUN pkg-deb \
   build-essential=12.1ubuntu2 \
   ruby2.3 \
@@ -11,9 +14,6 @@ RUN pkg-deb \
 
 RUN pkg-gem bundler:1.14.3
 RUN bundle config --global silence_root_warning 1
-
-# Used for `middleman init`
-RUN pkg-deb git=1:2.7.4-0ubuntu1
 
 # These are the slowest installs of all the gem dependencies, so split them out to make rebuilds faster
 RUN pkg-gem fast_blank:1.0.0
