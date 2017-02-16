@@ -1,4 +1,4 @@
 #!/bin/sh
 set -xe
 
-true # noop
+docker-compose run app rake spec
