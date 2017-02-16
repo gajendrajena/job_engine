@@ -2,3 +2,4 @@
 set -xe
 
 docker-compose run app rake spec
+docker-compose run app rake build
