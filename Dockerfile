@@ -24,6 +24,7 @@ RUN pkg-gem mini_racer:0.1.8 # execjs runtime
 RUN pkg-gem eventmachine:1.2.2
 
 RUN pkg-gem middleman:4.2.1
+RUN pkg-gem job_engine:0.1.0
 
 RUN mkdir -p /src/lib/job_engine
 RUN echo 'module JobEngine; VERSION = "0.0.0.fake"; end' > /src/lib/job_engine/version.rb
