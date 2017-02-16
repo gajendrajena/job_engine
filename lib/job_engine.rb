@@ -1,5 +1,8 @@
-require "job_engine/version"
-
-module JobEngine
-  # Your code goes here...
-end
+require 'job_engine/version'
+require 'job_engine/position'
+require 'job_engine/position_factory'
+require 'job_engine/position_collection'
+require 'job_engine/position_collection_factory'
+require 'job_engine/job_engine'
+require 'job_engine/middleman_helpers'
+require 'job_engine/positions_atom_feed'
